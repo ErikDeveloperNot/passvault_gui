@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons8-around-the-globe-50.png</file>
+        <file>icons8-copy-to-clipboard-50.png</file>
+        <file>icons8-delete-50.png</file>
+        <file>icons8-delete-bin-50.png</file>
+        <file>icons8-download-from-cloud-50.png</file>
+        <file>icons8-edit-50.png</file>
+        <file>icons8-gear-50.png</file>
+        <file>icons8-globe-50.png</file>
+        <file>icons8-settings-50.png</file>
+        <file>icons8-synchronize-50.png</file>
+        <file>icons8-trash-can-50.png</file>
+        <file>icons8-website-50.png</file>
+        <file>icons8-create-50.png</file>
+        <file>icons8-plus-50.png</file>
+        <file>icons8-lifebuoy-50.png</file>
+        <file>icons8-medical-bag-50.png</file>
+    </qresource>
+</RCC>
