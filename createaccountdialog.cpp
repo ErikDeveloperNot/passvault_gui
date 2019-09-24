@@ -65,6 +65,7 @@ void CreateAccountDialog::initialize(QString title)
     connect(ui->accountNameLineEdit, &QLineEdit::textChanged, this, &CreateAccountDialog::editingFinished);
     connect(ui->passwordLineEdit, &QLineEdit::textChanged, this, &CreateAccountDialog::editingFinished);
     connect(ui->pasword2LineEdit, &QLineEdit::textChanged, this, &CreateAccountDialog::editingFinished);
+    connect(ui->urlLineEdit, &QLineEdit::textChanged, this, &CreateAccountDialog::editingFinished);
 }
 
 

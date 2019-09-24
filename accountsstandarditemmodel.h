@@ -5,6 +5,7 @@
 
 #include <QStandardItemModel>
 #include <QSortFilterProxyModel>
+#include <QMap>
 
 
 
@@ -19,9 +20,11 @@ public:
 
     void remove(int);
     void add(QStandardItem *);
+    void reset();
 
 private:
     AccountsStore *store;
+    QMap<QString, QString> names;
     int count{0};
 };
 
@@ -36,7 +39,7 @@ public:
     }
 
     bool lessThan(const QModelIndex &left, const QModelIndex &right) const override {
-//        qDebug() << "testing: " << left.row();
+        qDebug() << "testing: " << left.row();
         Account *a = static_cast<Account*>(model->item(left.row()));
         Account *b = static_cast<Account*>(model->item(right.row()));
 

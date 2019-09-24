@@ -146,6 +146,10 @@ PreferencesDialog::~PreferencesDialog()
         store->setStoreLocation(ui->databaseLocationLabel->text());
     }
 
+    if (prefsChanged.generator) {
+        store->getSettings().generator = generatorDiag->getGenerator();
+    }
+
     if (prefsChanged.sync || prefsChanged.saveKey || prefsChanged.sortMRU || prefsChanged.generator ||
             prefsChanged.databasePurge || prefsChanged.databaseLocation) {
         qDebug() << "Saving Settings";
@@ -301,6 +305,11 @@ void PreferencesDialog::on_purgeCheckBox_stateChanged(int state)
     prefsChanged.databasePurge = true;
 }
 
+void PreferencesDialog::on_purgeSpinBox_valueChanged(int val)
+{
+    prefsChanged.databasePurge = true;
+}
+
 void PreferencesDialog::on_sortMRUCheckBox_stateChanged(int)
 {
     prefsChanged.sortMRU = true;
@@ -389,3 +398,4 @@ void PreferencesDialog::on_tabWidget_currentChanged(int index)
     if (index == 1)
         prefsChanged.generator = true;      //better than always saving
 }
+

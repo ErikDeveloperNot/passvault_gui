@@ -18,6 +18,7 @@ AccountsStandardItemModel::AccountsStandardItemModel(AccountsStore *store, QObje
         if (!val->getDeleted()) {
             appendRow(val);
             count++;
+            names.insert(val->getAccountName(), val->getAccountName());
         }
     }
 
@@ -56,7 +57,7 @@ QVariant AccountsStandardItemModel::data(const QModelIndex &index, int role) con
 {
     Account *account = static_cast<Account*>(item(index.row()));
     if (account == nullptr) {
-        qDebug() << "ITs null,";
+        qDebug() << "ITs null, " << index.row();
         return QVariant{};
 
     }
@@ -106,6 +107,27 @@ void AccountsStandardItemModel::add(QStandardItem * item)
 {
     count++;
     appendRow(item);
+}
+
+
+// used after sync to reload any changes to accounts, first clear then reload
+void AccountsStandardItemModel::reset()
+{
+    //either have to loop through 1 list for each account then loop through the other
+    //to see if it is present, or just remove all then add from accounts - wil try 1st
+    int cnt = count;
+
+    for (int var = 0; var < cnt; ++var) {
+        QStandardItem *i = item(var);
+        count--;
+        takeRow(0);
+    }
+
+    count = 0;
+    //try adding each account from store, if the object already exists think it is ignored
+    for (Account *a : store->getAccounts()) {
+        add(a);
+    }
 }
 
 

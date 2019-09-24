@@ -294,6 +294,7 @@ void MainWindow::on_actionSynchornize_triggered()
             timer->stop();
             timer->disconnect();
             delete timer;
+            this->accountsModel->reset();
             this->enableAfterSync();
         }
     });

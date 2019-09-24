@@ -54,6 +54,8 @@ private slots:
 
     void on_tabWidget_currentChanged(int index);
 
+    void on_purgeSpinBox_valueChanged(int arg1);
+
 private:
     Ui::PreferencesDialog *ui;
     AccountsStore *store;
