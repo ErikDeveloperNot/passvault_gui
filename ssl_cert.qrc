@@ -1,5 +1,7 @@
 <RCC>
     <qresource prefix="/">
+        <file>cert-old.pem</file>
+        <file>../../../../../../opt/ssl/passvault.erikdevelopernot.net/cert.pem</file>
         <file>cert.pem</file>
     </qresource>
 </RCC>
